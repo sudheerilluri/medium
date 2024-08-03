@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { supabase } from './supabaseClient';
 import { Box, Button, FormControl, FormLabel, Input, Heading, Text,Link as ChakraLink } from '@chakra-ui/react';
-import { Navigate,Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 
 export const Register = () => {

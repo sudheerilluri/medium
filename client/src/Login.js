@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from './supabaseClient';
-import { Box, Button, FormControl, FormLabel, Input, Heading, Text,Link as ChakraLink, LinkProps } from '@chakra-ui/react';
+import { Box, Button, FormControl, FormLabel, Input, Heading, Text,Link as ChakraLink } from '@chakra-ui/react';
 import { useNavigate ,Link as ReactRouterLink } from 'react-router-dom';
 import axios from 'axios';
 
@@ -20,7 +20,7 @@ export const Login = () => {
           userid: session.user.id,
           emailaddress:session.user.email
         });
-        const response = await axios.post('http://localhost:5000/add-user',jdata,{headers:
+        await axios.post('http://localhost:5000/add-user',jdata,{headers:
           {"Content-Type" : "application/json"}});
         navigate('/events');
       } catch (error) {

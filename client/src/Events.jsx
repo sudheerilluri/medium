@@ -1,7 +1,7 @@
 import { useState,useEffect } from 'react';
 import { supabase } from './supabaseClient';
-import { ChakraProvider, Box, Container, Button,Flex } from '@chakra-ui/react';
-import { useNavigate ,Link as ReactRouterLink } from 'react-router-dom';
+import { ChakraProvider, Container, Button,Flex } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import EventList from './EventList';
 import EventForm from './EventForm';
 import axios from 'axios';
