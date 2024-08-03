@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "setup-database": "node ./server/connection.js",
-    "dev":"nodemon index.js",
+    "dev":"node index.js",
     "build":"npm i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,6 @@
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "mongoose": "^8.5.2",
-    "nodemon": "^3.1.4"
+    "mongoose": "^8.5.2"
   }
 }
