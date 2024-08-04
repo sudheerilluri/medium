@@ -13,7 +13,8 @@ app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 
 // Connect to MongoDB
-const mongoURL = 'mongodb://localhost:27017/events'; // Replace with your MongoDB connection string
+//const mongoURL = 'mongodb://localhost:27017/events'; // Replace with your MongoDB connection string
+const mongoURL = 'mongodb+srv://illurisudheer:94416%40News@cluster0.oxqhees.mongodb.net/events?retryWrites=true&w=majority&appName=Cluster0';
 //mongoose.connect(mongoURL);
 mongoose.connect(mongoURL, {}).then(() => {
   console.log('Connected to MongoDB');
