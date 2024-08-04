@@ -12,7 +12,7 @@ function Events() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [users, setUsers] = useState(null);
   const navigate = useNavigate();
-
+const apiurl=process.env.REACT_APP_API_URL;
 
   useEffect(() => {
       const session = supabase.auth.getSession();
@@ -26,7 +26,7 @@ function Events() {
       try {
         const { data: { user } } = await  supabase.auth.getUser();
         let evlist = user.id;
-        const response = await axios.get('http://localhost:5000/events',{
+        const response = await axios.get(`${apiurl}/events`,{
           params: {
             userid: evlist,
           }});
@@ -54,7 +54,7 @@ function Events() {
           location:event.location,
           date:event.date
         });
-          await axios.put(`http://localhost:5000/events/:${event.id}`,jdata,{headers:
+          await axios.put(`${apiurl}/events/:${event.id}`,jdata,{headers:
           {"Content-Type" : "application/json"}});
       setEvents(events.map(e => (e.id === event.id ? event : e)));
     } else {
@@ -66,7 +66,7 @@ function Events() {
             location:event.location,
             date:event.date
           });
-            await axios.post(`http://localhost:5000/events`,jdata,{headers:
+            await axios.post(`${apiurl}/events`,jdata,{headers:
             {"Content-Type" : "application/json"}});
       setEvents([...events, { ...event, id: Date.now() }]);
     }
@@ -79,7 +79,7 @@ function Events() {
   };
 
   const handleDeleteEvent = async (id) => {
-    const response = await axios.delete(`http://localhost:5000/events/${id}`);
+    const response = await axios.delete(`${apiurl}/events/${id}`);
     setEvents(events.filter(event => event.id !== id));
   };
 

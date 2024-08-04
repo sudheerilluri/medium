@@ -12,6 +12,7 @@ export const Login = () => {
 
   const handleLogin = async () => {
     const { data: { session },error } = await supabase.auth.signInWithPassword({ email, password });
+    const apiUrl = process.env.REACT_APP_API_URL;
     if (error) {
       setMessage(error.message);
     } else {
@@ -20,7 +21,7 @@ export const Login = () => {
           userid: session.user.id,
           emailaddress:session.user.email
         });
-        await axios.post('http://localhost:5000/add-user',jdata,{headers:
+        await axios.post(`${apiUrl}/add-user`,jdata,{headers:
           {"Content-Type" : "application/json"}});
         navigate('/events');
       } catch (error) {
